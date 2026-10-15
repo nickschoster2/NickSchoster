@@ -29,9 +29,10 @@ section { padding: 4rem 0; }
 .nav-toggle { display: none; font: inherit; font-weight: 700; background: var(--surface); color: var(--ink);
   border: 2px solid var(--line); border-radius: 8px; padding: .3rem .8rem; cursor: pointer; }
 @media (max-width: 640px) {
-  .nav-toggle { display: block; }
-  #nav { display: none; flex-direction: column; width: 100%; }
-  #nav.open { display: flex; }
+  .js .nav-toggle { display: block; }
+  #nav { flex-direction: column; width: 100%; }
+  .js #nav { display: none; }
+  .js #nav.open { display: flex; }
 }
 
 /* hero */

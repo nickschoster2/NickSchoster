@@ -1,16 +1,8 @@
 const $ = (s, r = document) => r.querySelector(s);
 const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
 
-// ---------- Shared nav + footer ----------
+// ---------- Mobile menu toggle (nav itself lives in each HTML file) ----------
 const page = document.body.dataset.page;
-const NAV = [["index.html", "Home", "home"], ["games.html", "Games", "games"],
-  ["interactive.html", "Interactive Design", "interactive"], ["index.html#contact", "Contact", "contact"]];
-$("#site-header").innerHTML = `
-  <a class="brand" href="index.html">Your Name</a>
-  <button class="nav-toggle" aria-expanded="false" aria-controls="nav">Menu</button>
-  <nav id="nav" aria-label="Main">${NAV.map(([h, t, k]) =>
-    `<a href="${h}"${k === page ? ' aria-current="page"' : ""}>${t}</a>`).join("")}</nav>`;
-$("#site-footer").innerHTML = `<p>&copy; ${new Date().getFullYear()} Your Name. Built with HTML, CSS, and JavaScript.</p>`;
 const toggle = $(".nav-toggle");
 toggle.addEventListener("click", () => {
   const open = $("#nav").classList.toggle("open");

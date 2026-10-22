@@ -53,7 +53,7 @@ if (page === "project") {
       <h1>${esc(p.title)}</h1><p class="lede">${esc(p.summary)}</p>
       ${p.image ? `<img class="hero-img" src="${esc(p.image)}" alt="${esc(p.title)} screenshot">` : `<div class="hero-img placeholder"><span>${esc(p.title.charAt(0))}</span></div>`}
       <div class="detail-layout">
-        <div class="detail-text">${p.description.map(t => `<p>${esc(t)}</p>`).join("")}</div>
+        <div class="detail-text">${p.description.map(t => t.startsWith("## ") ? `<h2>${esc(t.slice(3))}</h2>` : `<p>${esc(t)}</p>`).join("")}</div>
         <aside class="facts">
           <dl>${facts.map(([k, v]) => `<dt>${k}</dt><dd>${esc(v)}</dd>`).join("")}</dl>
           <div class="tools big">${p.tools.map(toolIcon).join("")}</div>
